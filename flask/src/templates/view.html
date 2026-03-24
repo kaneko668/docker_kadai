@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>バイタル記録一覧 - 医療管理システム</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .data-table th, .data-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+        .data-table th {
+            background-color: #3498db;
+            color: white;
+        }
+        .data-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" style="max-width: 900px;">
+        <div style="text-align: right; margin-bottom: 15px;">
+            <a href="/logout" style="color: #e74c3c; text-decoration: none; font-weight: bold; border: 1px solid #e74c3c; padding: 5px 15px; border-radius: 4px;">🚪 ログアウト</a>
+        </div>
+
+        <h1>📊 患者バイタル記録一覧（医師用）</h1>
+        
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>測定日時</th>
+                    <th>患者名</th>
+                    <th>体温</th>
+                    <th>血圧(上/下)</th>
+                    <th>脈拍</th>
+                    <th>記録者</th>
+                    <th>メモ</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for record in records %}
+                <tr>
+                    <td>{{ record[0] }}</td> <td>{{ record[1] }}</td> <td>{{ record[2] }} ℃</td> <td>{{ record[3] }} / {{ record[4] }}</td> <td>{{ record[5] }}</td> <td>{{ record[6] }}</td> <td>{{ record[7] }}</td> </tr>
+                {% else %}
+                <tr>
+                    <td colspan="7">まだ記録がありません。</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新規登録 - 医療管理システム</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container" style="max-width: 400px; margin-top: 50px;">
+        <h1>📝 アカウント新規登録</h1>
+        
+        {% if error %}
+            <p style="color: red; text-align: center; font-weight: bold;">{{ error }}</p>
+        {% endif %}
+
+        <form action="/register" method="POST">
+            <div class="form-group">
+                <label>ユーザー名</label>
+                <input type="text" name="username" required placeholder="例：新人介護士の田中">
+            </div>
+            <div class="form-group">
+                <label>パスワード</label>
+                <input type="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <label>権限（役割）</label>
+                <select name="role" required style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px; font-size: 16px;">
+                    <option value="caregiver">介護士（入力メイン）</option>
+                    <option value="doctor">医師（カルテ確認メイン）</option>
+                </select>
+            </div>
+            <button type="submit" class="submit-btn">登録してログイン画面へ</button>
+        </form>
+        
+        <div style="text-align: center; margin-top: 20px;">
+            <a href="/login" style="color: #3498db; text-decoration: none;">← ログイン画面に戻る</a>
+        </div>
+    </div>
+</body>
+</html>

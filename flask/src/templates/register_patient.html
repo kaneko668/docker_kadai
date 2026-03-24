@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新規患者登録 - 医療管理システム</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container" style="max-width: 400px; margin-top: 50px;">
+        <h1 style="color: #27ae60;">👤 新規患者の登録</h1>
+        
+        <form action="/register_patient" method="POST">
+            <div class="form-group">
+                <label>患者さんのお名前</label>
+                <input type="text" name="patient_name" required placeholder="例：鈴木 おばあちゃん">
+            </div>
+            
+            <button type="submit" class="submit-btn" style="background-color: #27ae60;">名簿に追加する</button>
+        </form>
+        
+        <div style="text-align: center; margin-top: 20px;">
+            <a href="/" style="color: #3498db; text-decoration: none;">← 入力画面に戻る</a>
+        </div>
+    </div>
+</body>
+</html>

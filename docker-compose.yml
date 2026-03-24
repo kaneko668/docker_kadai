@@ -1,0 +1,46 @@
+
+services:
+  db:
+    image: mysql:8.0
+    command: --default-time-zone='+09:00'  # ★ここを追加！(MySQLに直接、日本時間を強制！)
+    environment:
+      - MYSQL_DATABASE=medical_db
+      - MYSQL_USER=medical_user
+      - MYSQL_PASSWORD=medical_pass
+      - MYSQL_ROOT_PASSWORD=root_pass
+      - TZ=Asia/Tokyo
+    env_file:
+      - .env
+    volumes:
+      - db-data:/var/lib/mysql
+    networks:
+      - docker_kadai-network
+
+
+  flask-app:
+    build: ./flask
+    env_file:
+      - .env
+    volumes:
+      - ./flask:/app
+    depends_on:
+      - db
+    networks:
+      - docker_kadai-network
+
+  proxy:
+    build: ./proxy
+    ports:
+      - "80:80"
+    environment:
+      - TZ=Asia/Tokyo
+    depends_on:
+      - flask-app
+    networks:
+      - docker_kadai-network
+
+volumes:
+  db-data:
+
+networks:
+  docker_kadai-network:

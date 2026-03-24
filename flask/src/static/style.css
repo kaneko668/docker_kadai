@@ -1,0 +1,74 @@
+/* 全体のやさしい雰囲気づくり */
+body {
+    font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+    background-color: #f0f8ff; /* 医療・介護をイメージした清潔感のある薄いブルー */
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+/* 入力フォームを白いカード状にして見やすくする */
+.container {
+    max-width: 500px; /* スマホやタブレットでもちょうどいい幅 */
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    font-size: 24px;
+    margin-bottom: 25px;
+}
+
+/* 入力項目の間隔を広げて誤タップを防ぐ */
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #555;
+    font-size: 16px;
+}
+
+/* 入力欄を大きく、タップしやすくする */
+input[type="number"],
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box; /* 枠線がはみ出さない魔法のコード */
+    font-size: 16px; /* スマホでズームされないための必須サイズ */
+}
+
+/* メモ欄の調整 */
+textarea {
+    resize: vertical;
+}
+
+/* 送信ボタンを目立たせて押しやすくする */
+.submit-btn {
+    width: 100%;
+    background-color: #3498db; /* 安心感のある青 */
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+/* ボタンにカーソルを合わせた時の動き */
+.submit-btn:hover {
+    background-color: #2980b9;
+}
