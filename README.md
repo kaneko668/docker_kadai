@@ -33,10 +33,10 @@ cd docker_kadai
 # 環境変数の設定
 nano .env  # データベース接続情報を記述
 ---
-##### MYSQL_ROOT_PASSWORD=rootpassword
-##### MYSQL_DATABASE=medical_db
-##### MYSQL_USER=medical_user
-##### MYSQL_PASSWORD=medical_password
+MYSQL_ROOT_PASSWORD=root_pass
+MYSQL_DATABASE=medical_db
+MYSQL_USER=medical_user
+MYSQL_PASSWORD=medical_pass
 ---
 
 ### cd proxy
